@@ -17,20 +17,4 @@ Gå i en IDE og kjør `Index.py`. Dette vil lage et nytt vindu, som spillet kjø
 Hvis du bruker MacOS kan du oppleve problemer med å lukke det nye vinduet. Da må tvinge avslutning av python, og heller kjøre programmet fra terminalen.
 
 
-## Pakke elementer forklart
-### Collitions (kolisjoner)
-Inneholder 2 lister som blir sjekket opp mot hverandre. Hvis et element i den ene listen koliderer med et element fra den andre listen, registreres dette. Dette fører til at disse elementene ikke kan gå gjennom hverandre. Vi kan sjekke hva som har kolidert i `collided` dictionarien.
-
-### SimplePlatform 
-Når du **lager** en platform trenger du å definere: 
-* Bredde
-* Høyde
-* x posisjon
-* y posisjon 
-* Navn på platformen   _(Brukes til å sjekke kollisjoner)_
-
-Når du **tegner** en platform må du definere:
-* Hvor du skal tegne _(Ofte til sjermen `screen`)_
-* Fargen
-
 
