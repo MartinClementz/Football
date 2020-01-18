@@ -1,7 +1,7 @@
 import pygame # 1.9.6
-from Collitions import Collitions 
-from SimplePlayer import Player
-from SimplePlatform import Platform 
+from Helpers.Collitions import Collitions 
+from Helpers.SimplePlayer import Player
+from Helpers.SimplePlatform import Platform 
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -52,9 +52,9 @@ while done != True:
     # --- Drawing code should go here
     screen.fill(WHITE)
   
-    platform.draw()
-    platform2.draw()
-    player.draw()
+    platform.draw(screen, BLACK)
+    platform2.draw(screen, BLACK)
+    player.draw(screen, BLACK)
 
 
     pygame.display.flip()

@@ -1,3 +1,4 @@
+import pygame
 class Platform():
     def __init__(self, width, height, x, y):
         self.width = width
@@ -6,5 +7,5 @@ class Platform():
         self.y = y
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
 
-    def draw(self):
+    def draw(self, screen,BLACK):
         pygame.draw.rect(screen, BLACK, self.rect)

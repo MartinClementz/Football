@@ -1,4 +1,4 @@
-
+import pygame
 class Player():
     def __init__(self):
         self.height = 75
@@ -37,5 +37,5 @@ class Player():
         self.rect.move_ip(self.move[0], self.move[1])
 
 
-    def draw(self):
-        pygame.draw.rect(screen, GREEN, self.rect)
+    def draw(self, screen, BLACK):
+        pygame.draw.rect(screen, BLACK, self.rect)
