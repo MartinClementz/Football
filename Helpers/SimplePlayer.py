@@ -1,16 +1,19 @@
 import pygame
+
 class Player():
     def __init__(self):
+        self.name = "Player"
         self.height = 75
         self.width = 50
         self.x = 0
         self.y = 0
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         
-        self.jump = False # isJumping?
-        self.mass = 40 # kg
-        self.move = [0, 0] # movement Vector
-        self.speed = 6 # player speed
+        
+        self.jump = False    # isJumping?
+        self.mass = 40       # kg
+        self.move = [0, 0]   # movement Vector
+        self.speed = 6       # player speed
         self.jumpHeight = 20 # jump force
 
 
@@ -37,5 +40,5 @@ class Player():
         self.rect.move_ip(self.move[0], self.move[1])
 
 
-    def draw(self, screen, BLACK):
-        pygame.draw.rect(screen, BLACK, self.rect)
+    def draw(self, screen, color):
+        pygame.draw.rect(screen, color, self.rect)

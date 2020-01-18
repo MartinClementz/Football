@@ -1,8 +1,8 @@
-
 class Collitions():
     def __init__(self):
         self.static = []
         self.agents = []
+        self.collided = {}
         
     def addStatic(self, obj):
         self.static.append(obj)
@@ -20,12 +20,13 @@ class Collitions():
                     if agent.rect.right >= self.static[index].rect.left and agent.rect.right <= self.static[index].rect.left + agent.speed:
                         agent.rect.right = self.static[index].rect.left
                         agent.rect.move_ip(-1, 0)
-                        agent.move[1] += agent.mass * dTime
+                        
 
                     # collided Bottom
                     elif agent.rect.bottom >= self.static[index].rect.top and agent.rect.bottom <= self.static[index].rect.bottom and agent.move[1] > 0:
-                        agent.rect.bottom = self.static[index].rect.top
+                        agent.rect.bottom = self.static[index].rect.top + 2
                         agent.move[1] = 0
+                        
                         try:
                             agent.jump = False
                         except:
@@ -36,16 +37,17 @@ class Collitions():
                     elif agent.rect.left <= self.static[index].rect.right and agent.rect.left >= self.static[index].rect.right - agent.speed:
                         agent.rect.left = self.static[index].rect.right
                         agent.rect.move_ip(1, 0)
-                        agent.move[1] += agent.mass * dTime
                         
                     # collided top
                     elif agent.rect.top <= self.static[index].rect.bottom and agent.rect.top >= self.static[index].rect.top and agent.move[1] < 0:
                         agent.rect.top = self.static[index].rect.bottom
-                        agent.move[1] += agent.mass * dTime
                         agent.move[1] = 0
-                        
+
+                    self.collided[self.static[index].name] = agent.name
                     
 
-                else: 
-                    agent.move[1] += agent.mass * dTime
+                else:
+                    self.collided[self.static[index].name] = None
+                        
+                    
                 
