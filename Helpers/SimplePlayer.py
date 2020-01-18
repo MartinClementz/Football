@@ -3,7 +3,7 @@ import pygame
 class Player():
     def __init__(self):
         self.name = "Player"
-        self.height = 75
+        self.height = 60
         self.width = 50
         self.x = 0
         self.y = 0

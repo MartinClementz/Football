@@ -16,14 +16,9 @@ class Collitions():
                 c = agent.rect.colliderect(self.static[index])
                 #index = agent.rect.collidelist(self.static)
                 if c == True:
-                    # collided right
-                    if agent.rect.right >= self.static[index].rect.left and agent.rect.right <= self.static[index].rect.left + agent.speed:
-                        agent.rect.right = self.static[index].rect.left
-                        agent.rect.move_ip(-1, 0)
-                        
-
-                    # collided Bottom
-                    elif agent.rect.bottom >= self.static[index].rect.top and agent.rect.bottom <= self.static[index].rect.bottom and agent.move[1] > 0:
+                    
+                    # collided Bottom side of player
+                    if agent.rect.bottom >= self.static[index].rect.top and agent.rect.bottom <= self.static[index].rect.bottom and agent.move[1] > 0:
                         agent.rect.bottom = self.static[index].rect.top + 2
                         agent.move[1] = 0
                         
@@ -31,14 +26,18 @@ class Collitions():
                             agent.jump = False
                         except:
                             pass
-                        
 
-                    # collided left
+                    # collided right side of player
+                    elif agent.rect.right >= self.static[index].rect.left and agent.rect.right <= self.static[index].rect.left + agent.speed:
+                        agent.rect.right = self.static[index].rect.left
+                        agent.rect.move_ip(-1, 0)
+
+                    # collided left  side of player
                     elif agent.rect.left <= self.static[index].rect.right and agent.rect.left >= self.static[index].rect.right - agent.speed:
                         agent.rect.left = self.static[index].rect.right
                         agent.rect.move_ip(1, 0)
                         
-                    # collided top
+                    # collided top side of player
                     elif agent.rect.top <= self.static[index].rect.bottom and agent.rect.top >= self.static[index].rect.top and agent.move[1] < 0:
                         agent.rect.top = self.static[index].rect.bottom
                         agent.move[1] = 0
