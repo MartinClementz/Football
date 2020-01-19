@@ -75,10 +75,10 @@ while done != True:
     #### Spiller - med tyngdekraft ####
     gravity.calculate(dTime, player)
 
-    #### Kalkulerer alle kollisjoner #### 
+    #### Kalkulerer alle kollisjoner og flyter #### 
     collitions.calculate(dTime)
 
-    #### Hva har kolidert ####
+    #### Hva har kolidert? ####
     print(collitions.collided)
 
 
