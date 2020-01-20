@@ -1,8 +1,8 @@
 import pygame
 
 class Graviti():
-    def __init__(self, strenght):
-        self.strenght = strenght
+    def __init__(self, strength):
+        self.strength = strength
 
     def calculate(self,dTime, obj):
-        obj.move[1] += obj.mass * self.strenght * dTime
+        obj.move[1] += obj.mass * self.strength * dTime

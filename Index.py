@@ -12,7 +12,7 @@ from Helpers.Gravity import Graviti
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
-Co = (255, 100, 100)
+PINK = (255, 100, 100)
 
 #### Pygame variabler ####
 FPS = 30
@@ -26,7 +26,7 @@ pygame.display.set_caption("Pygame-2DPlatformer-Starter")
  
 #### Starter kolisjoner ####
 collitions = Collitions()
-#### Lager tyngdekraft force:2 ####
+#### Lager tyngdekraft force:2 ( her må man prøve seg fram ) ####
 gravity = Graviti(2)
 
 
@@ -36,19 +36,18 @@ player = Player()
 collitions.addAgent(player)
 
 
-
 #### Lager Platform 1 ####
-platform = Platform(400,50, 0, 300, "Platform 1")
+platform = Platform(400,50, 0, 300, "Platform 1") #(height, width, x, y, name)
 #### Gir platform kolisjon ####
 collitions.addStatic(platform)
 
 #### Lager Platform 2 ####
-platform2 = Platform(200, 25, 100, 215, "Platform 2")
+platform2 = Platform(200, 5, 100, 215, "Platform 2")
 #### Gir platform kolisjon ####
 collitions.addStatic(platform2)
 
 #### Lager Platform 3 ####
-platform3 = Platform(100, 50, 300, 150, "Platform 3")
+platform3 = Platform(100, 5, 300, 150, "Platform 3")
 #### Gir platform kolisjon ####
 collitions.addStatic(platform3)
 
@@ -61,16 +60,16 @@ clock = pygame.time.Clock()
 done = False
 while done != True:
 
-    #### Delta tid, i sekunder ####
+    #### Delta tid, i sekunder ( brukes for å få korrekte kalkulasjoner ) ####
     dTime = clock.get_time()/1000
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
             
-    #### OPPDATERER ####
 
-    #### Spiller - med input ####
+    #### OPPDATERER ####
+    #### Spiller - med bruker input ####
     player.update()
     #### Spiller - med tyngdekraft ####
     gravity.calculate(dTime, player)
@@ -81,19 +80,17 @@ while done != True:
     #### Hva har kolidert? ####
     print(collitions.collided)
 
-
     #### TEGNER ####
     screen.fill(WHITE)
-  
-    #### Hvis spiller har kolidert med platform 2 ####
+
+    #### Hvis spiller har kolidert med platform 3 bytt farge ####
     if collitions.collided["Platform 3"] == "Player":
         platform3.draw(screen, GREEN)
 
     else:
         platform3.draw(screen, BLACK)
 
-
-    player.draw(screen, Co)
+    player.draw(screen, PINK)
     platform2.draw(screen, BLACK)
     platform.draw(screen, BLACK)
     

@@ -16,7 +16,3 @@ Gå i en IDE og kjør `Index.py`. Dette vil lage et nytt vindu, som spillet kjø
 
 Hvis du bruker MacOS kan du oppleve problemer med å lukke det nye vinduet. Da må tvinge avslutning av python, og heller kjøre programmet fra terminalen.
 
-
-Test
-
-
